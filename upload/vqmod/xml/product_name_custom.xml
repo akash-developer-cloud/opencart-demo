@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Append Custom Text to Product Name</name>
+    <code>product_custom_text</code>
+    <version>1.0</version>
+    <author>Custom</author>
+
+    <!-- ADMIN PRODUCT LIST -->
+    <file path="admin/controller/catalog/product.php">
+        <operation>
+            <search><![CDATA[
+                'name'       => $result['name'],
+            ]]></search>
+
+            <add position="replace"><![CDATA[
+                'name'       => $result['name'] . ' my custom text',
+            ]]></add>
+        </operation>
+    </file>
+
+    <!-- STOREFRONT CATEGORY PRODUCT LIST -->
+    <file path="catalog/controller/product/category.php">
+        <operation>
+            <search><![CDATA[
+                'name'        => $result['name'],
+            ]]></search>
+
+            <add position="replace"><![CDATA[
+                'name'        => $result['name'] . ' my custom text',
+            ]]></add>
+        </operation>
+    </file>
+</modification>
